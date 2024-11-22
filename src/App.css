@@ -1,0 +1,389 @@
+/* * {
+  box-sizing: border-box;
+} */
+
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+.header-container,
+.home-container,
+.home-cards,
+.offer-container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  color: #bbb;
+  font-size: 16px;
+  background-color: #f5f6f7;
+  height: 39px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  padding-left: 5px;
+}
+
+.search-bar {
+  width: 590px;
+  padding-left: 40px;
+  background-color: #f5f6f7;
+  border-radius: 0 5px 5px 0;
+  height: 37px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.header-content img {
+  width: 78px;
+  height: 30px;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 50px;
+}
+
+.user-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.user-buttons button {
+  height: 30px;
+  width: 115px;
+  border: solid 1px #2cb1ba;
+  font-size: 12px;
+  background-color: #fff;
+  color: #2cb1ba;
+  border-radius: 5px;
+}
+
+.disconnect-button button {
+  height: 30px;
+  width: 115px;
+  border: solid 1px #c2175b;
+  font-size: 12px;
+  background-color: #c2175b;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.header-buttons > button {
+  height: 30px;
+  width: 115px;
+  border: solid 1px #2cb1ba;
+  font-size: 12px;
+  background-color: #2cb1ba;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.header-buttons button:hover {
+  cursor: pointer;
+}
+
+nav {
+  padding: 10px;
+}
+
+/* HOME */
+.img-background {
+  height: 455px;
+  width: 100%;
+  background-image: url(./assets/imgs/home-picture.jpg);
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.home-content {
+  background-color: white;
+  height: 220px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px;
+  border-radius: 3px;
+}
+
+.home-content p {
+  line-height: 1.2;
+}
+
+.home-content button {
+  margin-top: 32px;
+  height: 45px;
+  width: 187px;
+  background-color: #2baeb7;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  padding: 0 14px;
+}
+
+.home-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.card-container {
+  width: 235px;
+  padding: 0 6px 16px 6px;
+}
+
+.card-container:hover {
+  cursor: pointer;
+}
+
+.user-infos {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-infos img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.user-infos > span {
+  color: #999;
+  font-size: 12px;
+}
+
+.product-infos img {
+  height: 360px;
+  width: 235px;
+  object-fit: cover;
+}
+
+.product-infos > div {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.product-infos span:first-child {
+  font-size: 14px;
+}
+
+.product-infos span:not(:first-child) {
+  font-size: 12px;
+  color: #999;
+}
+
+/* OFFER */
+.offer-body {
+  background-color: #eaedee;
+  min-height: calc(100vh - 60px);
+}
+
+.offer-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  gap: 30px;
+}
+
+.offer-pictures img {
+  height: 600px;
+  object-fit: cover;
+}
+
+.offer-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 320px;
+  padding: 40px;
+}
+
+.offer-price {
+  font-size: 24px;
+  line-height: 32px;
+  color: #111;
+}
+
+.offer-list {
+  margin: 16px 0;
+}
+
+.offer-list li {
+  display: flex;
+  padding: 2px 0;
+}
+
+.offer-list span:nth-child(odd) {
+  color: #999;
+}
+
+.offer-list span:nth-child(even) {
+  color: #666;
+  font-weight: 700;
+}
+
+.offer-list span {
+  flex: 1;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.offer-infos .divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(17, 17, 17, 0.1);
+}
+
+.offer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.offer-content .offer-name {
+  font-weight: 600;
+}
+
+.offer-content .offer-description {
+  color: #666;
+}
+
+.offer-avatar-username {
+  display: flex;
+  align-items: center;
+}
+
+.offer-avatar-username > img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.offer-infos button {
+  color: #fff;
+  background: #09b1ba;
+  border: solid 1px #09b1ba;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+  height: 36px;
+  padding: 0 16px;
+  line-height: 36px;
+  margin-top: 32px;
+}
+
+/* SIGNUP */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.signup-container h2 {
+  font-size: 22px;
+  margin: 20px 0;
+}
+
+.signup-form {
+  display: flex;
+  width: 275px;
+  margin: auto;
+  flex-direction: column;
+}
+
+.signup-form > input {
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.checkbox-container {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.checkbox-container > div {
+  display: flex;
+}
+
+.signup-form input[type="checkbox"] {
+  transform: scale(2);
+  margin-right: 20px;
+}
+
+.checkbox-container span {
+  color: #666;
+}
+
+.checkbox-container > p {
+  text-align: left;
+  color: #999;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.signup-form button {
+  background-color: #2cb1ba;
+  height: 45px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.signup-form button:hover {
+  cursor: pointer;
+}
+
+.signup-container a {
+  color: #2cb1ba;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
+}
