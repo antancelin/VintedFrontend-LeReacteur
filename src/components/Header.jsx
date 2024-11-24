@@ -1,6 +1,5 @@
 // Packages
 import { useNavigate } from "react-router-dom";
-// import { useEffect } from "react";
 import Cookies from "js-cookie";
 
 // Pictures
@@ -9,7 +8,14 @@ import vintedLogo from "../assets/imgs/vinted-logo.png";
 // Icons
 import { CiSearch } from "react-icons/ci";
 
-const Header = ({ isAuthenticated, setIsAuthenticated }) => {
+const Header = ({
+  isAuthenticated,
+  setIsAuthenticated,
+  visibleSignup,
+  setVisibleSignup,
+  visibleLogin,
+  setVisibleLogin,
+}) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -55,14 +61,14 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                 <div className="user-buttons">
                   <button
                     onClick={() => {
-                      navigate("/signup");
+                      setVisibleSignup(!visibleSignup);
                     }}
                   >
                     S'inscrire
                   </button>
                   <button
                     onClick={() => {
-                      navigate("/login");
+                      setVisibleLogin(!visibleLogin);
                     }}
                   >
                     Se connecter
