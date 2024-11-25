@@ -16,7 +16,6 @@ import Publish from "./pages/Publish";
 import Header from "./components/Header";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [title, setTitle] = useState("");
 
@@ -32,12 +31,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Home
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              setIsAuthenticated={setIsAuthenticated}
-              title={title}
-            />
+            <Home setIsAuthenticated={setIsAuthenticated} title={title} />
           }
         />
         <Route path="/offer/:id" element={<Offer />} />

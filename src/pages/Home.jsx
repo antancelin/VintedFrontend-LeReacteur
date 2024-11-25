@@ -7,9 +7,10 @@ import Cookies from "js-cookie";
 // Images
 import tear from "../assets/imgs/tear.svg";
 
-const Home = ({ setIsLoading, isLoading, setIsAuthenticated, title }) => {
+const Home = ({ setIsAuthenticated, title }) => {
   const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
