@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 // Images
 import tear from "../assets/imgs/tear.svg";
 
-const Home = ({ setIsLoading, isLoading, setIsAuthenticated }) => {
+const Home = ({ setIsLoading, isLoading, setIsAuthenticated, title }) => {
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
@@ -19,8 +19,12 @@ const Home = ({ setIsLoading, isLoading, setIsAuthenticated }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        let filters = "";
+        if (title) {
+          filters += "?title=" + title;
+        }
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/v2/offers`,
+          `${import.meta.env.VITE_API_URL}/v2/offers` + filters,
           {
             params: {
               limit: limit,
@@ -40,7 +44,7 @@ const Home = ({ setIsLoading, isLoading, setIsAuthenticated }) => {
       }
     };
     fetchData();
-  }, [page, limit, setIsAuthenticated, setIsLoading, navigate]);
+  }, [page, limit, setIsAuthenticated, setIsLoading, navigate, title]);
 
   return (
     <>

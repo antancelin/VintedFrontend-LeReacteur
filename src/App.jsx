@@ -19,6 +19,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [visibleSignup, setVisibleSignup] = useState(false);
   const [visibleLogin, setVisibleLogin] = useState(false);
+  const [title, setTitle] = useState("");
 
   return (
     <Router>
@@ -29,6 +30,8 @@ function App() {
         setVisibleSignup={setVisibleSignup}
         visibleLogin={visibleLogin}
         setVisibleLogin={setVisibleLogin}
+        title={title}
+        setTitle={setTitle}
       />
       <Routes>
         <Route
@@ -38,6 +41,7 @@ function App() {
               isLoading={isLoading}
               setIsLoading={setIsLoading}
               setIsAuthenticated={setIsAuthenticated}
+              title={title}
             />
           }
         />

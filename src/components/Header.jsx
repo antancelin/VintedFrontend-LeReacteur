@@ -15,6 +15,8 @@ const Header = ({
   setVisibleSignup,
   visibleLogin,
   setVisibleLogin,
+  title,
+  setTitle,
 }) => {
   const navigate = useNavigate();
 
@@ -43,6 +45,10 @@ const Header = ({
               type="text"
               className="search-bar"
               placeholder="Recherche des articles"
+              value={title}
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
             />
           </div>
           <div className="header-buttons">
