@@ -12,36 +12,11 @@ const Home = ({ setIsLoading, isLoading, setIsAuthenticated }) => {
 
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(20);
+  const [totalPages, setTotalPages] = useState(0);
 
-  const limitValues = [20, 60, 120];
-
-  const paginationButtons = () => {
-    const totalPages = Math.ceil(data.count / limit);
-    const buttons = [];
-
-    for (let i = 1; i <= totalPages; i++) {
-      buttons.push(
-        <button
-          key={i}
-          onClick={() => setPage(i)}
-          className={page === i ? "activate" : "deactivate"}
-        >
-          {i}
-        </button>
-      );
-      return buttons;
-    }
-  };
+  const limit = 10;
 
   useEffect(() => {
-    // const searchParams = new URLSearchParams(window.location.search);
-    // const pageParam = searchParams.get("page");
-    // const limitParam = searchParams.get("limit");
-
-    // if (pageParam) setPage(Number(pageParam));
-    // if (limitParam) setLimit(Number(limitParam));
-
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -54,6 +29,8 @@ const Home = ({ setIsLoading, isLoading, setIsAuthenticated }) => {
           }
         );
         setData(response.data);
+        setTotalPages(Math.ceil(response.data.count / limit));
+
         if (Cookies.get("token")) {
           setIsAuthenticated(true);
         }
@@ -63,7 +40,6 @@ const Home = ({ setIsLoading, isLoading, setIsAuthenticated }) => {
       }
     };
     fetchData();
-    // navigate(`/offers?page=${page}&limit=${limit}`, { replace: true });
   }, [page, limit, setIsAuthenticated, setIsLoading, navigate]);
 
   return (
@@ -81,22 +57,28 @@ const Home = ({ setIsLoading, isLoading, setIsAuthenticated }) => {
         <span>En cours de chargement...</span>
       ) : (
         <>
-          <div className="limit">
-            <span>Produits par page</span>
-            {limitValues.map((limitValue) => {
-              return (
-                <button
-                  key={limitValue}
-                  onClick={() => {
-                    setLimit(limitValue);
-                  }}
-                  className={limit === limitValue ? "activate" : "deactivate"}
-                >
-                  {limitValue}
-                </button>
-              );
-            })}
+          <div className="pagination-container">
+            <div className="pagination-start">
+              <button
+                onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+                disabled={page === 1}
+              >
+                Précédent
+              </button>
+              <span>
+                {page} / {totalPages}
+              </span>
+              <button
+                onClick={() =>
+                  setPage((prev) => Math.min(prev + 1, totalPages))
+                }
+                disabled={page === totalPages}
+              >
+                Suivant
+              </button>
+            </div>
           </div>
+
           <div className="home-cards">
             {data.offers.map((item) => {
               return (
@@ -145,14 +127,23 @@ const Home = ({ setIsLoading, isLoading, setIsAuthenticated }) => {
                 </React.Fragment>
               );
             })}
-            <div className="pagination">
-              <button onClick={() => setPage(page - 1)} disabled={page === 1}>
+          </div>
+          <div className="pagination-container">
+            <div className="pagination-end">
+              <button
+                onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+                disabled={page === 1}
+              >
                 Précédent
               </button>
-              <button>{paginationButtons()}</button>
+              <span>
+                {page} / {totalPages}
+              </span>
               <button
-                onClick={() => setPage(page + 1)}
-                disabled={page === Math.ceil(data.count / limit)}
+                onClick={() =>
+                  setPage((prev) => Math.min(prev + 1, totalPages))
+                }
+                disabled={page === totalPages}
               >
                 Suivant
               </button>

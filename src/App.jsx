@@ -41,16 +41,6 @@ function App() {
             />
           }
         />
-        {/* <Route
-          path="/offers"
-          element={
-            <Home
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              setIsAuthenticated={setIsAuthenticated}
-            />
-          }
-        /> */}
         <Route path="/offer/:id" element={<Offer />} />
         <Route
           path="/signup"

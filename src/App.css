@@ -12,6 +12,7 @@ h1 {
 
 .header-container,
 .home-container,
+.pagination-container,
 .home-cards,
 .offer-container {
   width: 1280px;
@@ -155,6 +156,18 @@ nav {
   font-size: 16px;
   border: none;
   padding: 0 14px;
+}
+
+.limit {
+  width: 1280px;
+  margin: 0 auto;
+  color: #2baeb7;
+}
+
+.limit button {
+  color: #2baeb7;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 .home-cards {
@@ -407,6 +420,42 @@ nav {
   background-color: white;
   border-style: none;
   cursor: pointer;
+}
+
+.pagination-start,
+.pagination-end {
+  color: #2baeb7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+.pagination-start > button,
+.pagination-end > button {
+  background-color: #2baeb7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.pagination-start > button:hover,
+.pagination-end > button:hover {
+  cursor: pointer;
+}
+
+.pagination-start > button .activate,
+.pagination-end > button .activate {
+  background-color: #2baeb7;
+  color: #fff;
+}
+
+.pagination-start > button .deactivate,
+.pagination-end > button .deactivate {
+  background-color: #2baeb7;
+  color: #fff;
 }
 
 /* MODAL */
