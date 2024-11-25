@@ -8,16 +8,7 @@ import vintedLogo from "../assets/imgs/vinted-logo.png";
 // Icons
 import { CiSearch } from "react-icons/ci";
 
-const Header = ({
-  isAuthenticated,
-  setIsAuthenticated,
-  visibleSignup,
-  setVisibleSignup,
-  visibleLogin,
-  setVisibleLogin,
-  title,
-  setTitle,
-}) => {
+const Header = ({ isAuthenticated, setIsAuthenticated, title, setTitle }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -67,14 +58,14 @@ const Header = ({
                 <div className="user-buttons">
                   <button
                     onClick={() => {
-                      setVisibleSignup(!visibleSignup);
+                      navigate("/signup");
                     }}
                   >
                     S'inscrire
                   </button>
                   <button
                     onClick={() => {
-                      setVisibleLogin(!visibleLogin);
+                      navigate("/login");
                     }}
                   >
                     Se connecter
@@ -82,8 +73,14 @@ const Header = ({
                 </div>
               </>
             )}
-
-            <button>Vends tes articles</button>
+            <button
+              className="publish-button"
+              onClick={() => {
+                navigate("/publish");
+              }}
+            >
+              Vends tes articles
+            </button>
           </div>
         </div>
       </div>

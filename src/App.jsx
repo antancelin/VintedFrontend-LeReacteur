@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
 
 // Components
 import Header from "./components/Header";
@@ -17,8 +18,6 @@ import Header from "./components/Header";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [visibleSignup, setVisibleSignup] = useState(false);
-  const [visibleLogin, setVisibleLogin] = useState(false);
   const [title, setTitle] = useState("");
 
   return (
@@ -26,10 +25,6 @@ function App() {
       <Header
         isAuthenticated={isAuthenticated}
         setIsAuthenticated={setIsAuthenticated}
-        visibleSignup={visibleSignup}
-        setVisibleSignup={setVisibleSignup}
-        visibleLogin={visibleLogin}
-        setVisibleLogin={setVisibleLogin}
         title={title}
         setTitle={setTitle}
       />
@@ -64,21 +59,11 @@ function App() {
             />
           }
         />
+        <Route
+          path="/publish"
+          element={<Publish isAuthenticated={isAuthenticated} />}
+        />
       </Routes>
-      {visibleSignup && (
-        <Signup
-          setIsAuthenticated={setIsAuthenticated}
-          visibleSignup={visibleSignup}
-          setVisibleSignup={setVisibleSignup}
-        />
-      )}
-      {visibleLogin && (
-        <Login
-          setIsAuthenticated={setIsAuthenticated}
-          visibleLogin={visibleLogin}
-          setVisibleLogin={setVisibleLogin}
-        />
-      )}
     </Router>
   );
 }

@@ -1,10 +1,10 @@
 // Packages
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const Login = ({ setIsAuthenticated, visibleLogin, setVisibleLogin }) => {
+const Login = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
   const [body, setBody] = useState({
     username: "",
@@ -34,68 +34,42 @@ const Login = ({ setIsAuthenticated, visibleLogin, setVisibleLogin }) => {
     }
   };
 
-  useEffect(() => {
-    if (visibleLogin) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
-
-    return () => {
-      document.body.classList.remove("no-scroll");
-    };
-  }, [visibleLogin]);
-
   return (
     <>
       <div className="signup-container">
-        <div
-          className="modal-container"
+        <h2>Se connecter</h2>
+        <form className="signup-form" onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            onChange={(event) => {
+              const newObj = { ...body };
+              newObj.email = event.target.value;
+              setBody(newObj);
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            onChange={(event) => {
+              const newObj = { ...body };
+              newObj.password = event.target.value;
+              setBody(newObj);
+            }}
+          />
+          <button>Se connecter</button>
+          {errorMessage && (
+            <span className="error-message">{errorMessage}</span>
+          )}
+        </form>
+        <a
           onClick={() => {
-            setVisibleLogin(false);
+            navigate("/signup");
           }}
         >
-          <div
-            className="modal"
-            onClick={(event) => {
-              event.stopPropagation();
-            }}
-          >
-            <h2>Se connecter</h2>
-            <form className="signup-form" onSubmit={handleLogin}>
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                onChange={(event) => {
-                  const newObj = { ...body };
-                  newObj.email = event.target.value;
-                  setBody(newObj);
-                }}
-              />
-              <input
-                type="password"
-                placeholder="Mot de passe"
-                onChange={(event) => {
-                  const newObj = { ...body };
-                  newObj.password = event.target.value;
-                  setBody(newObj);
-                }}
-              />
-              <button>Se connecter</button>
-              {errorMessage && (
-                <span className="error-message">{errorMessage}</span>
-              )}
-            </form>
-            <a
-              onClick={() => {
-                navigate("/signup");
-              }}
-            >
-              Pas encore de compte ? Inscris-toi !
-            </a>
-          </div>
-        </div>
+          Pas encore de compte ? Inscris-toi !
+        </a>
       </div>
     </>
   );
