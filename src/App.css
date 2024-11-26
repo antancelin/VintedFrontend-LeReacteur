@@ -542,6 +542,15 @@ nav {
   font-size: 16px;
 }
 
+.text-input > textarea {
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  color: #000;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
 .checkbox-section {
   width: 50%;
 }

@@ -113,7 +113,7 @@ const Publish = () => {
               </div>
               <div className="text-input">
                 <label htmlFor="description">Décris ton article</label>
-                <input
+                <textarea
                   type="text"
                   id="description"
                   placeholder="ex: porté quelquefois, taille correctement"
