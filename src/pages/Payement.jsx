@@ -1,6 +1,7 @@
 import { loadStripe } from "@stripe/stripe-js";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
+import Cookies from "js-cookie";
 
 // Cette ligne permet de vous connecter à votre compte Stripe en fournissant votre clef publique
 const stripePromise = loadStripe(
@@ -12,11 +13,9 @@ const Payement = ({ CheckoutForm }) => {
 
   const { name, price } = location.state;
 
-  const buyerProtection = price * 0.05;
+  const buyerProtection = Number((price * 0.05).toFixed(2));
   const shippingPrice = 5;
   const totalPrice = price + buyerProtection + shippingPrice;
-
-  console.log(totalPrice);
 
   const options = {
     // Type de transaction
@@ -27,7 +26,11 @@ const Payement = ({ CheckoutForm }) => {
     currency: "eur",
   };
 
-  console.log(options.amount);
+  const storedToken = Cookies.get("token");
+
+  if (!storedToken) {
+    return <Navigate to="/login" replace />;
+  }
 
   return (
     <>

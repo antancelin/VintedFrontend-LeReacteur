@@ -76,7 +76,7 @@ const CheckoutForm = ({ name, totalPrice }) => {
   };
 
   return completed ? (
-    <p>Paiement effectué</p>
+    <p>Paiement effectué ✅</p>
   ) : (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
