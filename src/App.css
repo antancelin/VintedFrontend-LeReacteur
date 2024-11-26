@@ -316,7 +316,7 @@ nav {
   margin-right: 10px;
 }
 
-.offer-infos button {
+.offer-infos a {
   color: #fff;
   background: #09b1ba;
   border: solid 1px #09b1ba;
@@ -327,6 +327,8 @@ nav {
   padding: 0 16px;
   line-height: 36px;
   margin-top: 32px;
+  align-self: center;
+  text-align: center;
 }
 
 /* SIGNUP */
@@ -580,5 +582,125 @@ nav {
 }
 
 .form-button > button:hover {
+  cursor: pointer;
+}
+
+.preview-img {
+  height: 180px;
+  width: 180px;
+}
+
+.preview-img img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* PAYEMENT */
+.payment-main {
+  background: #ebedee;
+  min-height: calc(100vh - 59px);
+}
+
+.payment-container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 36px 20px;
+}
+
+.payment-summary {
+  background: #ffffff;
+}
+
+.payment-summary h4 {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  color: #999;
+  padding: 24px 24px 8px;
+}
+
+.payment-summary .payment-content {
+  padding: 24px;
+  text-align: justify;
+}
+
+.payment-summary ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.payment-summary li {
+  font-size: 16px;
+  line-height: 22px;
+  color: #666;
+  padding: 4px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-summary .payment-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(17, 17, 17, 0.1);
+  margin: 24px 0;
+}
+
+.payment-summary .payment-total {
+  padding: 24px;
+  text-align: justify;
+}
+
+.payment-total li {
+  font-size: 16px;
+  line-height: 22px;
+  color: #000;
+  font-weight: 600;
+  padding: 4px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-card {
+  background: #ffffff;
+}
+
+.payment-card .payment-content {
+  padding: 24px;
+  text-align: justify;
+}
+
+.payment-card .payment-content span {
+  font-weight: 600;
+}
+
+.payment-card .payment-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(17, 17, 17, 0.1);
+  margin: 24px 0;
+}
+
+.payment-card button {
+  background: #00c06d;
+  border-color: #00c06d;
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 22px;
+  height: 44px;
+  padding: 0 14px;
+  color: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.payment-card button:hover {
   cursor: pointer;
 }

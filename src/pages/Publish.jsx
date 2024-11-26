@@ -30,6 +30,8 @@ const Publish = () => {
     exchanges: false,
   });
 
+  const [preview, setPreview] = useState(null);
+
   const handlePublish = async (event) => {
     event.preventDefault();
     if (!token) {
@@ -76,22 +78,33 @@ const Publish = () => {
           <form className="publish-form" onSubmit={handlePublish}>
             <div className="file-select">
               <div>
-                <div className="file-button">
-                  <label htmlFor="file" className="label-file">
-                    <span>+</span>
-                    <span>Ajoute une photo</span>
-                  </label>
-                  <input
-                    type="file"
-                    id="file"
-                    className="input-file"
-                    onChange={(event) => {
-                      const newDataObj = { ...dataObj };
-                      newDataObj.file = event.target.files[0];
-                      setDataObj(newDataObj);
-                    }}
-                  />
-                </div>
+                {preview ? (
+                  <div className="preview-img">
+                    <img src={preview} alt="preview image" />
+                  </div>
+                ) : (
+                  <>
+                    <div className="file-button">
+                      <label htmlFor="file" className="label-file">
+                        <span>+</span>
+                        <span>Ajoute une photo</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="file"
+                        className="input-file"
+                        onChange={(event) => {
+                          const newDataObj = { ...dataObj };
+                          newDataObj.file = event.target.files[0];
+                          setDataObj(newDataObj);
+                          setPreview(
+                            URL.createObjectURL(event.target.files[0])
+                          );
+                        }}
+                      />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 

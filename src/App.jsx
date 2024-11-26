@@ -11,9 +11,11 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import Payement from "./pages/Payement";
 
 // Components
 import Header from "./components/Header";
+import CheckoutForm from "./components/CheckoutForm";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -56,6 +58,10 @@ function App() {
         <Route
           path="/publish"
           element={<Publish isAuthenticated={isAuthenticated} />}
+        />
+        <Route
+          path="/payement"
+          element={<Payement CheckoutForm={CheckoutForm} />}
         />
       </Routes>
     </Router>
