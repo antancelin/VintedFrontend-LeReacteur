@@ -53,14 +53,6 @@ N'utilisez jamais de **className** ou d'**id** contenant le mot **ad** car la pl
 
 Permettez à l'utilisateur de parcourir les pages de résultats. L'API possède des paramètres **'skip'** et **'limit'** qui vous seront utiles pour récupérer seulement une partie des annonces de la base de données.
 
-Exemples :
-
-- Pour afficher la première page de résultats : 'ROUTE/offers?page=1&limit=8'
-- Pour afficher la deuxième page de résultats : 'ROUTE/offers?page=2&limit=8'
-- Pour afficher la troisième page de résultats : 'ROUTE/offers?page=3&limit=8'
-
-Notez que cette route permet aussi de récupérer le nombre d'annonces total dans la propriété count. Cette valeur vous aidera à calculer le nombre de pages maximum.
-
 #### Effet "déchiré" du hero
 
 Récupérez l'image sur https://www.vinted.fr/ puis intégrez-là à votre projet !
@@ -168,12 +160,6 @@ Exemple de réponse :
 };
 ```
 
-### BONUS
-
-Si vos annonces possèdent plusieurs images, implémentez **'react-multi-carousel'** pour implémenter un carousel d'images.
-
-Si vous le souhaitez, vous pouvez utiliser l'API Vinted du Reacteur pour cela : 'ROUTE'
-
 ## Signup
 
 <img src="./src/assets/imgs/screenshots/vinted-signup.png">
@@ -217,10 +203,6 @@ git add . # Ajoute tous les fichiers modifiés à votre prochain commit
 git commit -m "Description de votre modification (en anglais)" # Crée une sauvegarde locale des modifications de vos fichiers
 git push # Sauvegarde votre commit sur le serveur distant
 ```
-
-### Bonus
-
-Déclencher l'affichage d'une modal lorsque l'utilisateur clique sur le bouton **'S'inscrire'** du header (et non une nouvelle page).
 
 ## Login
 
@@ -270,10 +252,6 @@ git commit -m "Description de votre modification (en anglais)" # Crée une sauve
 git push # Sauvegarde votre commit sur le serveur distant
 ```
 
-### Bonus
-
-Déclencher l'affichage d'une modal lorsque l'utilisateur clique sur le bouton **'Se connecter'** du header (et non une nouvelle page)
-
 ## Filter
 
 L'idée c'est de réaliser la partie **filtres** du Header.
@@ -309,11 +287,3 @@ Vous pouvez vous inspirer de l'exemple ici : https://lereacteur-vinted.netlify.a
 - Pour trier par prix croissant : 'ROUTE/offers?sort=price-asc'
 
 - Pour chercher zara et trier par prix croissant en même temps : 'ROUTE/offers?sort=price-asc&title=zara'
-
-### Bonus
-
-#### Price Range
-
-Pour le slider définissant **'priceMin'** et **'priceMax'** vous pouvez utiliser le package [react-range](https://www.npmjs.com/package/react-range).
-
-Il en existe d'autres, n'hésitez pas à les tester !

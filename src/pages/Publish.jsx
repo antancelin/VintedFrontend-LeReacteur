@@ -24,7 +24,7 @@ const Publish = () => {
     brand: "",
     size: "",
     color: "",
-    state: "",
+    condition: "",
     location: "",
     price: null,
     exchanges: false,
@@ -45,7 +45,7 @@ const Publish = () => {
       formData.append("brand", dataObj.brand);
       formData.append("size", dataObj.size);
       formData.append("color", dataObj.color);
-      formData.append("state", dataObj.state);
+      formData.append("condition", dataObj.condition);
       formData.append("location", dataObj.location);
       formData.append("price", dataObj.price);
       formData.append("exchanges", dataObj.exchanges);
@@ -175,16 +175,16 @@ const Publish = () => {
                 />
               </div>
               <div className="text-input">
-                <label htmlFor="state">État</label>
+                <label htmlFor="condition">État</label>
                 <input
                   type="text"
-                  id="state"
+                  id="condition"
                   placeholder="ex: Neuf avec étiquette"
-                  name="state"
+                  name="condition"
                   value={dataObj.state}
                   onChange={(event) => {
                     const newDataObj = { ...dataObj };
-                    newDataObj.state = event.target.value;
+                    newDataObj.condition = event.target.value;
                     setDataObj(newDataObj);
                   }}
                 />
