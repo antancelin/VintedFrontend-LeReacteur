@@ -1,11 +1,13 @@
 // Packages
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const Login = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [body, setBody] = useState({
     username: "",
     email: "",
@@ -24,7 +26,7 @@ const Login = ({ setIsAuthenticated }) => {
       );
       Cookies.set("token", response.data.token, { expires: 7 });
       setIsAuthenticated(true);
-      navigate("/");
+      navigate(location.state?.from || "/");
     } catch (error) {
       if (error.response.data.message === "wrong email or password") {
         setErrorMessage("Mauvaise adresse email ou password");

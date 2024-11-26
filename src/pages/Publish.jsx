@@ -1,11 +1,12 @@
 // Packages
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const Publish = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [token, setToken] = useState(null);
 
   useEffect(() => {
@@ -13,9 +14,9 @@ const Publish = () => {
     if (storedToken) {
       setToken(storedToken);
     } else {
-      navigate("/login");
+      navigate("/login", { state: { from: location.pathname } });
     }
-  }, [navigate]);
+  }, [navigate, location.pathname]);
 
   const [dataObj, setDataObj] = useState({
     file: null,
